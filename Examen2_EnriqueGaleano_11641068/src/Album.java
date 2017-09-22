@@ -47,7 +47,7 @@ public class Album {
 
 	@Override
 	public String toString() {
-		return  nombre + "";
+		return  nombre + "" + cancion;
 	}
 	
 	

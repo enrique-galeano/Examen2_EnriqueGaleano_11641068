@@ -11,10 +11,10 @@
 public class Canciones {
 	private String nombre;
 	private String artista;
-	private int segundos;
+	private long segundos;
 	private String genero;
 
-	public Canciones(String nombre, String artista, int segundos, String genero) {
+	public Canciones(String nombre, String artista, long segundos, String genero) {
 		this.nombre = nombre;
 		this.artista = artista;
 		this.segundos = segundos;
@@ -37,11 +37,11 @@ public class Canciones {
 		this.artista = artista;
 	}
 
-	public int getSegundos() {
+	public long getSegundos() {
 		return segundos;
 	}
 
-	public void setSegundos(int segundos) {
+	public void setSegundos(long segundos) {
 		this.segundos = segundos;
 	}
 
