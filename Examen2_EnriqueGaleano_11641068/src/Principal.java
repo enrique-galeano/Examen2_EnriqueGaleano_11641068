@@ -68,7 +68,12 @@ public class Principal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
+        jButton7 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jt_nombre_playList = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
         Agregar = new javax.swing.JPopupMenu();
         Agregar_a_PlayList = new javax.swing.JMenuItem();
         Agregar_a_Favoritos = new javax.swing.JMenuItem();
@@ -328,21 +333,34 @@ public class Principal extends javax.swing.JFrame {
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane3.setViewportView(jTree1);
 
+        jButton7.setText("Agregar a la Play List");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(166, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(188, 188, 188))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(199, 199, 199)
+                .addComponent(jButton7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(66, 66, 66)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton7)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Playlist", jPanel2);
@@ -359,6 +377,45 @@ public class Principal extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("tab3", jPanel7);
+
+        jLabel15.setText("Nombre de la PlayList");
+
+        jButton6.setText("agregar playList");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(jLabel15)
+                        .addGap(62, 62, 62)
+                        .addComponent(jt_nombre_playList, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(232, 232, 232)
+                        .addComponent(jButton6)))
+                .addContainerGap(170, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jt_nombre_playList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(76, 76, 76)
+                .addComponent(jButton6)
+                .addContainerGap(265, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Crear Play List", jPanel8);
 
         javax.swing.GroupLayout SubMenuLayout = new javax.swing.GroupLayout(SubMenu.getContentPane());
         SubMenu.getContentPane().setLayout(SubMenuLayout);
@@ -685,6 +742,7 @@ public class Principal extends javax.swing.JFrame {
 					SubMenu.pack();
 					SubMenu.setLocationRelativeTo(this);
 					SubMenu.setVisible(true);
+					us = ll;
 
 				}
 			}
@@ -765,24 +823,51 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
-        // TODO add your handling code here:
+		// TODO add your handling code here:
 
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jtree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtree1MouseClicked
 		// TODO add your handling code here:
 		if (evt.isMetaDown()) {
+			boolean selecion = false;
 			int row = jtree1.getClosestRowForLocation(evt.getX(), evt.getY());
-			boolean sel = false;
 			Object ob1 = jtree1.getSelectionPath().getLastPathComponent();
 			NododeSeleccion = (DefaultMutableTreeNode) ob1;
-			if (NododeSeleccion.getUserObject() instanceof Canciones) {
-				cn = (Canciones)NododeSeleccion.getUserObject();
-				Agregar.show(evt.getComponent(), evt.getX(), evt.getY());
+			if (NododeSeleccion.getUserObject() instanceof String) {
+				for (Album k : listaAlbum) {
+					for (Canciones lis1 : listaCancion) {
+						if (NododeSeleccion.getUserObject().toString().equals(lis1.getNombre())) {
+							selecion = true;
+							
+						}
+
+					}
+
+				}
+				if (selecion) {
+					selec = NododeSeleccion.getUserObject().toString();
+					Agregar.show(evt.getComponent(), evt.getX(), evt.getY());
+				}
+
 			}
 		}
 
     }//GEN-LAST:event_jtree1MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+		String nombre ;
+		nombre = jt_nombre_playList.getText();
+		
+		us.getPlaylist().add(new playList((nombre)));
+		
+		
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7MouseClicked
 
 	/**
 	 * @param args the command line arguments
@@ -835,6 +920,23 @@ public class Principal extends javax.swing.JFrame {
 			m.reload();
 		}
 	}
+	
+	public void arbol2(){
+		DefaultTreeModel m = (DefaultTreeModel) jtree1.getModel();
+		DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+		raiz.removeAllChildren();
+		for(playList ls : us.getPlaylist()) {
+			DefaultMutableTreeNode nombre = new DefaultMutableTreeNode(ls.getNombre());
+			DefaultMutableTreeNode po;
+			for(Canciones cj : ls.getCon()) {
+				po = new DefaultMutableTreeNode(cj.getNombre());
+				nombre.add(po);
+			}
+			raiz.add(nombre);
+			m.reload();
+		}
+		
+	}
 
 	public void tabla() {
 		DefaultTableModel modelo = new DefaultTableModel();
@@ -865,12 +967,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -894,6 +999,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -911,6 +1017,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jt_nombreLogin;
     private javax.swing.JTextField jt_nombre_Cancion;
     private javax.swing.JTextField jt_nombre_album;
+    private javax.swing.JTextField jt_nombre_playList;
     private javax.swing.JTextField jt_username_Ingresar;
     private javax.swing.JTextField jt_username_login;
     private javax.swing.JTable jtable_canciones;
@@ -921,9 +1028,11 @@ public class Principal extends javax.swing.JFrame {
 	ArrayList<Usuario> lista = new ArrayList();
 	ArrayList<Canciones> listaCancion = new ArrayList();
 	ArrayList<Album> listaAlbum = new ArrayList();
+	Usuario us;
 	String nick;
 	DefaultMutableTreeNode NododeSeleccion;
 	Album al;
 	Canciones cn;
+	String selec;
 
 }
