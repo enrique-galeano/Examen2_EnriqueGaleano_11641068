@@ -285,6 +285,12 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
+
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -423,24 +429,25 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(242, 242, 242)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(206, 206, 206)
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(77, 77, 77)
                         .addComponent(jc_combox, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(300, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(188, 188, 188))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(149, 149, 149)
                 .addComponent(jc_combox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(70, 70, 70)
                 .addComponent(jButton8)
                 .addContainerGap(76, Short.MAX_VALUE))
         );
@@ -474,6 +481,11 @@ public class Principal extends javax.swing.JFrame {
         Agregar.add(Agregar_a_PlayList);
 
         Agregar_a_Favoritos.setText("Favoritos");
+        Agregar_a_Favoritos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Agregar_a_FavoritosActionPerformed(evt);
+            }
+        });
         Agregar.add(Agregar_a_Favoritos);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -916,6 +928,26 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
 		new Hilo(jLabel1,(Canciones)jc_combox.getSelectedItem()).start();
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void Agregar_a_FavoritosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_a_FavoritosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Agregar_a_FavoritosActionPerformed
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+		if (jTabbedPane1.getSelectedIndex() == 3) {
+			DefaultComboBoxModel mode = (DefaultComboBoxModel) jc_combox.getModel();
+			mode.removeAllElements();
+			if (mode.getSize() != us.getFavoritos().size()) {
+				for (Favoritos d : us.getFavoritos()) {
+					mode.addElement(d);
+					
+				}
+				jc_combox.setModel(mode);
+				
+			}
+		}
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
 
 	/**
 	 * @param args the command line arguments
