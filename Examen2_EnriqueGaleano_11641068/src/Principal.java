@@ -67,7 +67,7 @@ public class Principal extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jtree2 = new javax.swing.JTree();
         jButton7 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -330,8 +330,8 @@ public class Principal extends javax.swing.JFrame {
         jTabbedPane1.addTab("Explorar", jPanel1);
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Play List");
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane3.setViewportView(jTree1);
+        jtree2.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane3.setViewportView(jtree2);
 
         jButton7.setText("Agregar a la Play List");
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -436,6 +436,11 @@ public class Principal extends javax.swing.JFrame {
 
         Agregar_a_PlayList.setText("Play List");
         Agregar_a_PlayList.setToolTipText("");
+        Agregar_a_PlayList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Agregar_a_PlayListActionPerformed(evt);
+            }
+        });
         Agregar.add(Agregar_a_PlayList);
 
         Agregar_a_Favoritos.setText("Favoritos");
@@ -839,7 +844,7 @@ public class Principal extends javax.swing.JFrame {
 					for (Canciones lis1 : listaCancion) {
 						if (NododeSeleccion.getUserObject().toString().equals(lis1.getNombre())) {
 							selecion = true;
-							
+
 						}
 
 					}
@@ -856,18 +861,26 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jtree1MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        // TODO add your handling code here:
-		String nombre ;
-		nombre = jt_nombre_playList.getText();
-		
-		us.getPlaylist().add(new playList((nombre)));
-		
-		
+		// TODO add your handling code here:
+		try {
+			String nombre;
+			nombre = jt_nombre_playList.getText();
+			us.getPlaylist().add(new playList((nombre)));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-        // TODO add your handling code here:
+		// TODO add your handling code here:
     }//GEN-LAST:event_jButton7MouseClicked
+
+    private void Agregar_a_PlayListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_a_PlayListActionPerformed
+        // TODO add your handling code here:
+		arbol2();
+    }//GEN-LAST:event_Agregar_a_PlayListActionPerformed
 
 	/**
 	 * @param args the command line arguments
@@ -920,22 +933,22 @@ public class Principal extends javax.swing.JFrame {
 			m.reload();
 		}
 	}
-	
-	public void arbol2(){
-		DefaultTreeModel m = (DefaultTreeModel) jtree1.getModel();
+
+	public void arbol2() {
+		DefaultTreeModel m = (DefaultTreeModel) jtree2.getModel();
 		DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
 		raiz.removeAllChildren();
-		for(playList ls : us.getPlaylist()) {
+		for (playList ls : us.getPlaylist()) {
 			DefaultMutableTreeNode nombre = new DefaultMutableTreeNode(ls.getNombre());
 			DefaultMutableTreeNode po;
-			for(Canciones cj : ls.getCon()) {
+			for (Canciones cj : ls.getCon()) {
 				po = new DefaultMutableTreeNode(cj.getNombre());
 				nombre.add(po);
 			}
 			raiz.add(nombre);
 			m.reload();
 		}
-		
+
 	}
 
 	public void tabla() {
@@ -1005,7 +1018,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTree jTree1;
     private javax.swing.JComboBox jc_albumExistente;
     private javax.swing.JComboBox jc_genero_cancion;
     private javax.swing.JPasswordField jp_password_Ingresar;
@@ -1022,6 +1034,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jt_username_login;
     private javax.swing.JTable jtable_canciones;
     private javax.swing.JTree jtree1;
+    private javax.swing.JTree jtree2;
     // End of variables declaration//GEN-END:variables
 	String path = "./hola.kik";
 	administrarPersona ap = new administrarPersona(path);

@@ -412,7 +412,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTree" name="jTree1">
+                    <Component class="javax.swing.JTree" name="jtree2">
                       <Properties>
                         <Property name="model" type="javax.swing.tree.TreeModel" editor="org.netbeans.modules.form.editors2.TreeModelEditor">
                           <TreeModel code="Play List&#xa;"/>
@@ -530,6 +530,9 @@
             <Property name="text" type="java.lang.String" value="Play List"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Agregar_a_PlayListActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="Agregar_a_Favoritos">
           <Properties>
