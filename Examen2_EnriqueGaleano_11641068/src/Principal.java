@@ -69,11 +69,14 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jtree2 = new javax.swing.JTree();
         jButton7 = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jt_nombre_playList = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        jc_combox = new javax.swing.JComboBox();
+        jLabel16 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
         Agregar = new javax.swing.JPopupMenu();
         Agregar_a_PlayList = new javax.swing.JMenuItem();
         Agregar_a_Favoritos = new javax.swing.JMenuItem();
@@ -365,19 +368,6 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Playlist", jPanel2);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 603, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 493, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab3", jPanel7);
-
         jLabel15.setText("Nombre de la PlayList");
 
         jButton6.setText("agregar playList");
@@ -416,6 +406,46 @@ public class Principal extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Crear Play List", jPanel8);
+
+        jLabel16.setText("00:00");
+
+        jButton8.setText("Play");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(242, 242, 242)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jc_combox, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(143, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(jc_combox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jButton8)
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Musica", jPanel9);
 
         javax.swing.GroupLayout SubMenuLayout = new javax.swing.GroupLayout(SubMenu.getContentPane());
         SubMenu.getContentPane().setLayout(SubMenuLayout);
@@ -882,6 +912,11 @@ public class Principal extends javax.swing.JFrame {
 		arbol2();
     }//GEN-LAST:event_Agregar_a_PlayListActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+		new Hilo(jLabel1,(Canciones)jc_combox.getSelectedItem()).start();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -982,6 +1017,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -989,6 +1025,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1011,14 +1048,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JComboBox jc_albumExistente;
+    private javax.swing.JComboBox jc_combox;
     private javax.swing.JComboBox jc_genero_cancion;
     private javax.swing.JPasswordField jp_password_Ingresar;
     private javax.swing.JPasswordField jp_password_login;
